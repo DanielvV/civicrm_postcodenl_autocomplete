@@ -1,0 +1,37 @@
+<?php
+
+/**
+ * Implements hook_menu
+ * Create page with callback
+ */
+function civicrm_postcodenl_autocomplete_menu() {
+    $items['civicrm_postcodenl_autocomplete'] = array(
+        'access callback'   => true, // available to all
+        'page callback'     => 'civicrm_postcodenl_autocomplete_get', // defined below
+        'delivery callback' => 'drupal_json_output' 
+    );
+    return $items;
+}
+
+/**
+ * Custom function _get
+ * Run api call and return values
+ */
+function civicrm_postcodenl_autocomplete_get() {
+    $postcode=$_GET['postcode'];
+    $huisnummer=$_GET['huisnummer'];
+
+    if (!empty($postcode) && !empty($huisnummer)) {
+        civicrm_initialize();
+        require_once 'api/class.api.php';
+
+        $result = civicrm_api3('PostcodeNL', 'get', array(
+          'postcode' => $postcode,
+          'huisnummer' => $huisnummer,
+        ));
+        if (isset($result['id'])) {
+            return $result['values'][$result['id']];
+        }
+    }
+}
+
