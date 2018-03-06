@@ -4,10 +4,10 @@ CiviCRM PostcodeNL autocomplete
 Call `https://example.com/civicrm_postcodenl_autocomplete?postcode=&huisnummer=` after installing this module in Drupal.
 
 Dependencies:
-[civicrm](https://civicrm.org/)
-[webform](https://www.drupal.org/project/webform)
-[webform_civicrm](https://www.drupal.org/project/webform_civicrm)
-[org.civicoop.postcodenl](https://github.com/CiviCooP/org.civicoop.postcodenl) (CiviCRM extension)
+- [civicrm](https://civicrm.org/)
+- [webform](https://www.drupal.org/project/webform)
+- [webform_civicrm](https://www.drupal.org/project/webform_civicrm)
+- [org.civicoop.postcodenl](https://github.com/CiviCooP/org.civicoop.postcodenl) (CiviCRM extension)
 
 
 
